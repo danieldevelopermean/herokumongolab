@@ -1,0 +1,56 @@
+<div class="modal-content">
+  <form id="addReview" name="addReview" role="form" ng-submit="vm.onSubmit()" class="form-horizontal">
+    <div class="modal-header">
+      <button type="button" ng-click="vm.modal.cancel()" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+      <h4 id="myModalLabel" class="modal-title">Cadastre um local</h4>
+    </div>
+
+
+    <div class="modal-body">
+
+      <div role="alert" ng-show="vm.formError" class="alert alert-danger">{{ vm.formError }}</div>
+
+      <div class="form-group">
+        <label for="name" class="col-xs-2 col-sm-2 control-label">Nome da Localidade</label>
+        <div class="col-xs-10 col-sm-10">
+          <input id="name" name="name" required="required" ng-model="vm.formData.name" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="col-xs-2 col-sm-2 control-label">Endereço</label>
+        <div class="col-xs-10 col-sm-10">
+          <input id="name" name="name" required="required" ng-model="vm.formData.endereco" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="col-xs-2 col-sm-2 control-label">Curiosidades</label>
+        <div class="col-xs-10 col-sm-10">
+          <input id="name" name="name" required="required" ng-model="vm.formData.curiosidades" class="form-control"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="col-xs-2 col-sm-2 control-label">Coordenadas Logintude e Latitude </label>
+        <div class="col-xs-10 col-sm-10">
+          <input placeholder="{{ vm.locationData.locationLog }}" id="name" name="name" required="required" ng-model="vm.formData.longitude" class="form-control"/>
+          <input placeholder="{{ vm.locationData.locationLat }}" id="name" name="name" required="required" ng-model="vm.formData.latitude" class="form-control"/>
+        </div>
+      </div>
+
+      <h4 id="myModalLabel" class="modal-title">Suas coordenadas Atuais </h4>
+      <h4 id="myModalLabel" class="modal-title">Logitude {{ vm.locationData.locationLog }}</h4>
+      <h4 id="myModalLabel" class="modal-title">Latitude  {{ vm.locationData.locationLat }}</h4>
+
+
+
+    </div>
+
+
+    <div class="modal-footer">
+      <button ng-click="vm.modal.cancel()" type="button" class="btn btn-default">Cancel</button>
+      <button type="submit" class="btn btn-primary">Submit review</button>
+    </div>
+  </form>
+</div>
