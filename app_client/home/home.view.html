@@ -5,11 +5,12 @@
 
   <div class="row">
     <div class="col-xs-12 col-sm-8">
-      <label for="filter">Filter results</label>
+      <label for="filter">Filtro de localidades</label>
       <button type="button" class="btn btn-success btn-custom-cadastrar" ng-click="vm.cadForm()" >Cadastrar Local</button>
       <input id="filter" type="text", name="filter", ng-model="textFilter">
       <div class="error">{{ vm.message }}</div>
       <div class="row list-group">
+      <br>
         <div class="col-xs-12 list-group-item" ng-repeat="location in vm.data.locations | filter : textFilter">
           <h4>
             <a href="#/location/{{ location._id }}">{{ location.name }}</a>

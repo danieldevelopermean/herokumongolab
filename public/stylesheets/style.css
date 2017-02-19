@@ -9,3 +9,5 @@
 #filter {margin-left: 4px;}
 .btn-custom{float: right; color: white; background-color: red; }
 .btn-custom-cadastrar{float: right; color: black; background-color: green; }
+.navbar{background-color: black}
+.ng-binding{color: black}

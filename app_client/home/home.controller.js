@@ -19,26 +19,26 @@
     vm.lng;
     console.log(window.location);
     vm.pageHeader = {
-      title: 'Loc8r',
-      strapline: 'Find places to work with wifi near you!'
+      title: 'Qual a distância?',
+      strapline: 'Registre uma localidade e verifique!'
     };
     vm.sidebar = {
-      content: "Looking for wifi and a seat? Loc8r helps you find places to work when out and about. Perhaps with coffee, cake or a pint? Let Loc8r help you find the place you're looking for."
+      content: "Site produzido usando o conjunto de tecnologias MEAN -  MongoDB, Express, AngularJS(1), NodeJS. Descrição de funcionamento pode ser encontrado na aba Sobre. "
     };
-    vm.message = "Checking your location";
+    vm.message = "Procurando...";
 
     vm.getData = function (position) {
        vm.lat = position.coords.latitude,
        vm.lng = position.coords.longitude;
-      vm.message = "Searching for nearby places";
+      vm.message = "Pesquisa por lugares próximos";
       loc8rData.locationByCoords(vm.lat, vm.lng)
         .success(function(data) {
-          vm.message = data.length > 0 ? "" : "No locations found nearby";
+          vm.message = data.length > 0 ? "" : "Nenhuma localização proxima a você foi cadastrada";
           vm.data = { locations: data };
           console.log(vm.data);
         })
         .error(function (e) {
-          vm.message = "Sorry, something's gone wrong, please try again later";
+          vm.message = "Existe algum erro, tente mais tarde";
         });
     };
 
@@ -50,7 +50,7 @@
 
     vm.noGeo = function () {
       $scope.$apply(function() {
-        vm.message = "Geolocation is not supported by this browser.";
+        vm.message = "Esse navegador não suporta geolocalização";
       });
     };
 

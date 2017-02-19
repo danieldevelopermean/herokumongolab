@@ -20,7 +20,7 @@
         console.log(e);
       });
 
-// resolve(pg444) - passa para o modal uma instancia recuperada dos dados
+
     vm.popupReviewForm = function () {
       var modalInstance = $modal.open({
         templateUrl: '/reviewModal/reviewModal.view.html',
@@ -35,8 +35,6 @@
         }
       });
 
-//  recebe o dados que foram passados pelo modal ao inclui-los no banco de dados
-// (pg 452) funcao de callback que recuperar os dados do modal
       modalInstance.result.then(function (data) {
         vm.data.location.reviews.push(data);
       });
