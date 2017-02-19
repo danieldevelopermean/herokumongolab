@@ -2,4 +2,3 @@ https://peaceful-river-56821.herokuapp.com/
 https://git.heroku.com/peaceful-river-56821.git
 
 
-<img src="http://maps.googleapis.com/maps/api/staticmap?center={{ vm.data.location.coords[1] }},{{ vm.data.location.coords[0] }}&amp;zoom=17&amp;size=400x350&amp;sensor=false&amp;markers={{ vm.data.location.coords[1] }},{{ vm.data.location.coords[0] }}&amp;scale=2" class="img-responsive img-rounded">
