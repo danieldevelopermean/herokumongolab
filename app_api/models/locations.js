@@ -41,7 +41,7 @@ var locationSchema = new mongoose.Schema({
         max: 5
     },
     facilities: [String],
-    // Always store coordinates longitude, latitude order.
+    // loongitude depois latitude
     coords: {
         type: [Number],
         index: '2dsphere'
