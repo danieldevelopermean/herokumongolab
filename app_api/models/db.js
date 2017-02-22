@@ -7,7 +7,7 @@ if (process.env.NODE_ENV === 'production') {
 
 mongoose.connect(dbURI);
 
-// CONNECTION EVENTS
+
 mongoose.connection.on('connected', function() {
     console.log('Mongoose connected to ' + dbURI);
 });
@@ -18,32 +18,31 @@ mongoose.connection.on('disconnected', function() {
     console.log('Mongoose disconnected');
 });
 
-// CAPTURE APP TERMINATION / RESTART EVENTS
-// To be called when process is restarted or terminated
+// chamado quando o processo de restart é chamado
 gracefulShutdown = function(msg, callback) {
     mongoose.connection.close(function() {
         console.log('Mongoose disconnected through ' + msg);
         callback();
     });
 };
-// For nodemon restarts
+// nodemon restart
 process.once('SIGUSR2', function() {
     gracefulShutdown('nodemon restart', function() {
         process.kill(process.pid, 'SIGUSR2');
     });
 });
-// For app termination
+// sair app
 process.on('SIGINT', function() {
     gracefulShutdown('app termination', function() {
         process.exit(0);
     });
 });
-// For Heroku app termination
+// heroku sair
 process.on('SIGTERM', function() {
     gracefulShutdown('Heroku app termination', function() {
         process.exit(0);
     });
 });
 
-// BRING IN YOUR SCHEMAS & MODELS
+// envio squema
 require('./locations');
