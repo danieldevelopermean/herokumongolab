@@ -6,8 +6,7 @@ var sendJSONresponse = function(res, status, content) {
   res.json(content);
 };
 
-/* POST a new review, providing a locationid */
-/* /api/locations/:locationid/reviews */
+
 module.exports.reviewsCreate = function(req, res) {
   if (req.params.locationid) {
     Loc
